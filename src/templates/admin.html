@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% block head %}
+<title>Guest Book</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/theme .css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}"
+/>
+{% endblock %} {% block body %}
+<div class="container theme-showcase" role="main">
+  <div class="jumbotron">
+    <h1>Guest Data</h1>
+    <a type="button" class="btn btn-primary" href="{{ url_for('main.index') }}"
+      >Home Page</a
+    >
+  </div>
+  {% for com in comments %}
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-1">
+        <p><strong>id</strong></p>
+        <p>{{ com.id }}</p>
+      </div>
+      <div class="col-xs-2">
+        <p><strong>Guest Name</strong></p>
+        <p>{{ com.name }}</p>
+      </div>
+      <div class="col-xs-1">
+        <p><strong>Phone Number</strong></p>
+        <p>{{ com.phone_no }}</p>
+      </div>
+      <div class="col-xs-2">
+        <p><strong>Company</strong></p>
+        <p>{{ com.company }}</p>
+      </div>
+      <div class="col-xs-2">
+        <p><strong>Host</strong></p>
+        <p>{{ com.whom_to_see }}</p>
+      </div>
+      <div class="col-xs-1">
+        <p><strong>Floor</strong></p>
+        <p>{{ com.floor }}</p>
+      </div>
+      <div class="col-xs-1">
+        <p><strong>Date</strong></p>
+        <p>{{ com.date_in.date() }}</p>
+      </div>
+      <div class="col-xs-1">
+        <p><strong>Time In</strong></p>
+        <p>{{ com.date_in.time().replace(microsecond=0) }}</p>
+      </div>
+      <div class="col-xs-1">
+        <p><strong>Time Out</strong></p>
+        <p>{{ com.date_in.time().replace(microsecond=0) }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="well">
+    <p>{{ com.comment }}</p>
+  </div>
+  <a href="/delete/{{com.id}}">Delete</a>
+  {% endfor %}
+</div>
+{% endblock %}

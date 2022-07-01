@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% block head %}
+<title>SignIn</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/sign.css') }}"
+/>
+{% endblock %} {% block body %}
+<div class="container">
+  <form class="form-sigin" method="POST" action="">
+    <h2 class="form-signin-heading">Sign the Guest Book</h2>
+    <div class="form-group">
+      <label for="inputName" class="sr-only">Name</label>
+      <input
+        type="text"
+        id="inputName"
+        name="name"
+        class="form-control"
+        placeholder="Name"
+        required
+        autofocus
+      />
+    </div>
+    <div class="form-group">
+      <label for="inputName" class="sr-only">Phone</label>
+      <input
+        type="text"
+        id="inputName"
+        name="phone_no"
+        class="form-control"
+        placeholder="Phone Number"
+        required
+        autofocus
+      />
+    </div>
+    <div class="form-group">
+      <label for="inputName" class="sr-only">Company</label>
+      <input
+        type="text"
+        id="inputName"
+        name="company"
+        class="form-control"
+        placeholder="Company"
+        required
+        autofocus
+      />
+    </div>
+    <div class="form-group">
+      <select name="floor" class="form-control" id="inputName">
+        <option value="Ground floor">Ground floor</option>
+        <option>1st floor</option>
+        <option>2nd floor</option>
+        <option>3rd floor</option>
+        <option>4th floor</option>
+        <option>5th floor</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="inputName" class="sr-only">Whom to see</label>
+      <input
+        type="text"
+        id="inputName"
+        name="whom_to_see"
+        class="form-control"
+        placeholder="Whom To See"
+        required
+        autofocus
+      />
+    </div>
+    <div class="form-group">
+      <label for="comment" class="sr-only">Comment:</label>
+      <textarea
+        class="form-control"
+        name="comment"
+        id="comment"
+        rows="5"
+        placeholder="Comment"
+      ></textarea>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign</button>
+  </form>
+</div>
+{% endblock %}

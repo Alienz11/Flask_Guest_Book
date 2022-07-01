@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block head %}
+<title>SignIn</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/sign.css') }}"
+/>
+{% endblock %} {% block body %}
+<a class="btn btn-primary" href="{{ url_for('main.index') }}" role="button"
+  >Home</a
+>
+<div class="text-center">
+  <h1 class="form-signin-heading">THANK YOU FOR COMING</h1>
+</div>
+{% endblock %}
