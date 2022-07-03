@@ -23,7 +23,8 @@
       >Admin</a
     >
   </div>
-  {% for com in comments %}
+  {% for com in comments %} {% if com.date_in.time().replace(microsecond=0) ==
+  com.time_out.time().replace(microsecond=0) %}
   <div class="page-header">
     <h1>{{ com.name }}</h1>
     <div class="container">
@@ -59,8 +60,15 @@
     <p>{{ com.comment }}</p>
   </div>
   <form action="/" method="POST">
-    <button type="submit" class="btn btn-secondary btn-sm">Sign Out</button>
+    <button
+      value="{{ com.id }}"
+      name="id"
+      type="submit"
+      class="btn btn-secondary btn-sm"
+    >
+      Sign Out
+    </button>
   </form>
-  {% endfor %}
+  {% endif %} {% endfor %}
 </div>
 {% endblock %}
