@@ -1,3 +1,4 @@
+from sqlalchemy import null
 from . import db
 from datetime import datetime
 from flask_wtf import FlaskForm
@@ -13,3 +14,4 @@ class Comment(db.Model):
     whom_to_see = db.Column(db.String(40))
     comment = db.Column(db.String(1500))
     date_in = db.Column(db.DateTime, default=datetime.utcnow)
+    time_out = db.Column(db.DateTime, default=datetime.utcnow)
