@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from . import db
 from .models import Comment
+from datetime import datetime
 
 main = Blueprint('main', __name__)
 
@@ -8,18 +9,19 @@ main = Blueprint('main', __name__)
 @main.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        # Signout.query.order_by(Signout.time_out)
-
-        # comments = db.session.query(Comment, Signout).join(Signout).all()
 
         try:
+            new_time = datetime.utcnow()
+            new_id = request.form['id']
+            new_data = Comment.query.filter_by(id=new_id).first()
+            new_data.time_out = new_time
+            db.session.commit()
             return redirect(url_for('main.sign_out'))
         except:
             return 'There was an issue adding your task'
 
     else:
         comments = Comment.query.order_by(Comment.date_in).all()
-        # comments = db.session.query(Comment, Signout).join(Signout).all()
         return render_template('index.html', comments=comments)
 
 
@@ -36,8 +38,7 @@ def sign_out():
 
 @main.route('/admin', methods=['POST', 'GET'])
 def admin():
-    # comments = db.session.query(Comment, Signout).join(Signout).all()
-    comments = Comment.query.order_by(Comment.date_in).all()
+    comments = Comment.query.all()
     return render_template('admin.html', comments=comments)
 
 
