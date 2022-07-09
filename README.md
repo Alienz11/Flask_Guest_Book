@@ -52,8 +52,8 @@ A virtual evironment can be created if prefered. Run the following commands on y
     ```
     (venv) user % python3
     >>> from src import db, create_app
-
     >>> from src.models import Comment
+    >>> db.create_all(app=create_app())
     /Users/user/Library/Python/3.8/lib/python/site-packages/flask_sqlalchemy/__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
     warnings.warn(FSADeprecationWarning(
 
