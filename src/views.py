@@ -1,9 +1,20 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, make_response
 from . import db
+from functools import wraps
 from .models import Comment
 from datetime import datetime
 
 main = Blueprint('main', __name__)
+
+
+def auth_required(f):  # fuction that creates the decorator
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if auth and auth.username == 'Alienz11' and auth.password == 'Alienz11':
+            return f(*args, **kwargs)
+        return make_response('could not verify!', 401, {'www-Authenticate': 'Basic realm="Login Required"'})
+    return decorated
 
 
 @main.route('/', methods=['POST', 'GET'])
@@ -37,6 +48,7 @@ def sign_out():
 
 
 @main.route('/admin', methods=['POST', 'GET'])
+@auth_required
 def admin():
     comments = Comment.query.all()
     return render_template('admin.html', comments=comments)

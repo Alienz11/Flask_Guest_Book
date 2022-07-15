@@ -82,7 +82,11 @@ A virtual evironment can be created if prefered. Run the following commands on y
 
   - click on the link `http://127.0.0.1:5000` and have fun :rocket::rocket::rocket:
 
+
 Happy Coding :smile::smile::rocket:
+## DEMO
+
+To log into Admin page, username and password is `Alienz11`
 
 ## References
 
