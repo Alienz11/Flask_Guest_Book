@@ -82,7 +82,7 @@ A virtual evironment can be created if prefered. Run the following commands on y
 
   - click on the link `http://127.0.0.1:5000` and have fun :rocket::rocket::rocket:
 
-- [x] **Live Deployment** ::rocket::rocket:
+- [x] **Live Deployment** :rocket::rocket:
 
   - The following files are needed for Flask live deployment build on either Netlify or in this project's case Heroku
     - [.flaskenv](.flaskenv)
