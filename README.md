@@ -92,7 +92,7 @@ A virtual evironment can be created if prefered. Run the following commands on y
 
 Happy Coding :smile::smile::rocket:
 
-## DEMO
+## Demo
 
 To see deployed app click [Guess_book_app](https://fl-guest-book.herokuapp.com/)
 To log into Admin page, username and password is `Alienz11`
