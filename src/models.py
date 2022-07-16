@@ -1,8 +1,5 @@
-from sqlalchemy import null
 from . import db
 from datetime import datetime
-from flask_wtf import FlaskForm
-from wtforms import SelectField
 
 
 class Comment(db.Model):
